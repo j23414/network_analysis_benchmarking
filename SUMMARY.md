@@ -6,6 +6,8 @@
 * [Cpp tools]
   * [pagerank](git_pagerank.md)
 * [Graph DB tools]
-  * [Neo4j]
-  * [GraphX]
+  * [Neo4j](neo4j.md)
+    * [start](njstart.md)
+  * [TinkerPop3](tinkerpop3.md)
+    * [start](tpstart.md)
 * [Our Method](cudapagerank.md)

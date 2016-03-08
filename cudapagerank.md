@@ -31,5 +31,54 @@ Then fetch the benchmark data into a tsv
 
 Perl script
 ```
+#! /usr/bin/env perl
+
+use strict;
+use warnings;
+
+my $nodes;
+my $edges;
+my $cpu;
+my $cpu2;
+my $threads;
+my $gpu;
+
+print "nodes\t";
+print "edges\t";
+print "type\t";
+print "threads\t";
+print "time\n";
+while(<>){
+    if(/(\d+) nodes and (\d+) links/){
+        if($nodes){
+            print "$nodes\t$edges\t","cpu","\t$threads\t$cpu\n";
+            print "$nodes\t$edges\t","gpu","\t$threads\t$gpu\n";
+        }
+        $nodes=$1;
+        $edges=$2;
+    }
+    if(/use (\d+) threads for multithread CPU computation/){
+        $threads=$1;
+    }
+    if(/CUDA Page Rank calculation totally took (\d+) ms/){
+        $gpu=$1;
+    }
+    if(/Page Rank calculation on CPU took (\d+) ms/){
+        $cpu=$1;
+    }
+    
+}
+```
+
+Plot the data in R
 
 ```
+#! /opt/local/bin/Rscript
+
+data<-read.table("gpubench.tsv",sep="\t",header=TRUE)
+head(data)
+library(ggplot2)
+qplot(log(edges),log(time),data=data,colour=type,alpha=I(0.5))
+```
+
+![edgesXtime](imgs/edgesXtime.png)

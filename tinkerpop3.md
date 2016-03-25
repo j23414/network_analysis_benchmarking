@@ -27,9 +27,11 @@ plugin activated: tickerpop.tickergraph
 gremlin> 
 ```
 
-Did not work on my Mac
+Mac required a bash shell and JAVA_HOME variable set. Needed jdk version 8 and then everything worked.
 
 ```
+bash 
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_77.jdk/Contents/Home
 
          \,,,/
          (o o)

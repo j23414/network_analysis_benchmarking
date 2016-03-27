@@ -7,16 +7,10 @@
 ## Installation
 
 ```
-$ curl -L -O https://www.apache.org/dist/incubator/tinkerpop/3.1.0-incubating/apache-gremlin-console-3.1.0-incubating-bin.zip
-$ unzip apache-gremlin-console-3.1.0-incubating-bin.zip
-$ cd apache-gremlin-console-3.1.0-incubating
+$ wget http://www-us.apache.org/dist/incubator/tinkerpop/3.1.1-incubating/apache-gremlin-console-3.1.1-incubating-bin.zip
+$ unzip apache-gremlin-console-3.1.1-incubating-bin.zip
+$ cd apache-gremlin-console-3.1.1-incubating
 $ ./bin/gremlin.sh   
-```
-
-The last command starts gremlin. 
-
-Worked fine on the linux computers...
-```
 
          \,,,/
          (o o)
@@ -27,12 +21,9 @@ plugin activated: tickerpop.tickergraph
 gremlin> 
 ```
 
-Mac required a bash shell and JAVA_HOME variable set. Needed jdk version 8 and then everything worked.
+On Mac, the following exception occured. The fix is shown after the error. 
 
 ```
-bash 
-JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_77.jdk/Contents/Home
-
          \,,,/
          (o o)
 -----oOOo-(3)-oOOo-----
@@ -69,22 +60,15 @@ Caused by: java.lang.ClassNotFoundException: java.util.concurrent.CompletableFut
 	... 21 more
 ```
 
+Mac required a bash shell and JAVA_HOME variable set. Needed jdk version 8 and then everything worked.
+```
+bash 
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_77.jdk/Contents/Home
+```
 In comparison with Mango 
 
 * On Mac, drag and drop to applications
 * On Windows, run through the setup exe file
 * On Linux, fetch and unzip (Maybe we should have a curl command...)
 
-
-```
-g.V()
-```
-
-```
-1) nodes("g");
-2) g.node."1"._text="Here";g.node."1"._radius=2;
-2) foreach node in g where id==1 set _text="Here",_radius=2; /*take longer*/
-3) print g.node."1".name;
-4) select link from g where label=="knows" && (in.id==1||out.id==1);
-```
 

@@ -9,7 +9,7 @@
   * [Neo4j](neo4j.md)
     * [start](njstart.md)
   * [TinkerPop3](tinkerpop3.md)
-    * [start](tpstart.md
+    * [start](tpstart.md)
   * [GraphX](spark.md)
   * [SNAP.py](snap.md)
 * [Our Method](cudapagerank.md)

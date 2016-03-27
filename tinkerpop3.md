@@ -21,6 +21,12 @@ plugin activated: tickerpop.tickergraph
 gremlin> 
 ```
 
+To exit the gremlin shell type the following.
+
+```
+gremlin>:q
+```
+
 On Mac, the following exception occured. The fix is shown after the error. 
 
 ```

@@ -1,14 +1,14 @@
 # Summary
 
-* [R tools]
-  * [igraph](igraph_pagerank.md)
-  * [aracne](aracne.md)
-* [Cpp tools]
-  * [pagerank](git_pagerank.md)
-* [Graph DB tools]
+* [Data Prep](data.md)
+* [TinkerPop3](tinkerpop3.md)
+* [GraphX](spark.md)
+* [SNAP](snap.md)
+* [pagerank](git_pagerank.md)
+* [igraph](igraph.md)
+* [Our Method](cudapagerank.md)
+* [Not Done Yet]
   * [Neo4j](neo4j.md)
     * [start](njstart.md)
-  * [TinkerPop3](tinkerpop3.md)
-  * [GraphX](spark.md)
-  * [SNAP.py](snap.md)
-* [Our Method](cudapagerank.md)
+  * [igraph](igraph_pagerank.md)
+  * [aracne](aracne.md)

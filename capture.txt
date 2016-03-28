@@ -1,0 +1,133 @@
+         \,,,/
+         (o o)
+-----oOOo-(3)-oOOo-----
+plugin activated: tinkerpop.server
+plugin activated: tinkerpop.utilities
+plugin activated: tinkerpop.tinkergraph
+gremlin> graph = TinkerGraph.open()
+==>tinkergraph[vertices:0 edges:0]
+gremlin> graph.createIndex('userId',Vertex.class)
+==>null
+gremlin> g=graph.traversal()
+==>graphtraversalsource[tinkergraph[vertices:0 edges:0], standard]
+gremlin> getOrCreate={id->
+gremlin> g.V().has('userId',id).tryNext().orElseGet{g.addV('userId',id).next()}
+gremlin> }
+==>groovysh_evaluate$_run_closure1@5aceec94
+gremlin> new File('t.tsv').eachLine{
+gremlin> if(!it.startsWith("#")){
+gremlin> (fromVertex,toVertex)=it.split('\t').collect(getOrCreate)
+gremlin> fromVertex.addEdge('votesFor',toVertex)
+gremlin> }
+gremlin> }
+==>e[7161][513-votesFor->3282]
+gremlin> graph
+==>tinkergraph[vertices:1021 edges:5120]
+gremlin> result=graph.compute().program(PageRankVertexProgram.build().create()).submit().get()
+==>result[tinkergraph[vertices:1021 edges:0],memory[size:0]]
+gremlin> result.memory().runtime
+==>418 # RUNTIME
+gremlin> g=result.graph().traversal(standard())
+==>graphtraversalsource[tinkergraph[vertices:1021 edges:0], standard]
+gremlin> result.graph.io(IoCore.graphson()).writeGraph("t.json")
+==>null
+
+         \,,,/
+         (o o)
+-----oOOo-(3)-oOOo-----
+plugin activated: tinkerpop.server
+plugin activated: tinkerpop.utilities
+plugin activated: tinkerpop.tinkergraph
+gremlin> graph=TinkerFactory.createModern()
+==>tinkergraph[vertices:6 edges:6]
+gremlin> graph = TinkerGraph.open()
+==>tinkergraph[vertices:0 edges:0]
+gremlin> graph.createIndex('userId',Vertex.class)
+==>null
+gremlin> g=graph.traversal()
+==>graphtraversalsource[tinkergraph[vertices:0 edges:0], standard]
+gremlin> getOrCreate={id->
+gremlin> g.V().has('userId',id).tryNext().orElseGet{g.addV('userId',id).next()}
+gremlin> }
+==>groovysh_evaluate$_run_closure1@4108fa66
+gremlin> new File('c.tsv').eachLine{
+gremlin> if(!it.startsWith("#")){
+gremlin> (fromVertex,toVertex)=it.split('\t').collect(getOrCreate)
+gremlin> fromVertex.addEdge('votesFor',toVertex)
+gremlin> }
+gremlin> }
+==>e[1049599][2531-votesFor->2738]
+gremlin> result=graph.compute().program(PageRankVertexProgram.build().create()).submit().get()
+==>result[tinkergraph[vertices:1024 edges:0],memory[size:0]]
+gremlin> result.memory().runtime
+==>1561 # RUNTIME
+gremlin> g=result.graph().traversal(standard())
+==>graphtraversalsource[tinkergraph[vertices:1024 edges:0], standard]
+gremlin> result.graph.io(IoCore.graphson()).writeGraph("c.json")
+==>null
+
+         \,,,/
+         (o o)
+-----oOOo-(3)-oOOo-----
+plugin activated: tinkerpop.server
+plugin activated: tinkerpop.utilities
+plugin activated: tinkerpop.tinkergraph
+gremlin> graph = TinkerGraph.open()
+==>tinkergraph[vertices:0 edges:0]
+gremlin> graph.createIndex('userId',Vertex.class)
+==>null
+gremlin> g=graph.traversal()
+==>graphtraversalsource[tinkergraph[vertices:0 edges:0], standard]
+gremlin> getOrCreate={id->
+gremlin> g.V().has('userId',id).tryNext().orElseGet{g.addV('userId',id).next()}
+gremlin> }
+==>groovysh_evaluate$_run_closure1@5aceec94
+gremlin> new File('m.tsv').eachLine{
+gremlin> if(!it.startsWith("#")){
+gremlin> (fromVertex,toVertex)=it.split('\t').collect(getOrCreate)
+gremlin> fromVertex.addEdge('votesFor',toVertex)
+gremlin> }
+gremlin> }
+==>e[564643][26216-votesFor->545653]
+gremlin> graph
+==>tinkergraph[vertices:118482 edges:327680]
+gremlin> result=graph.compute().program(PageRankVertexProgram.build().create()).submit().get()
+==>result[tinkergraph[vertices:118482 edges:0],memory[size:0]]
+gremlin> result.memory().runtime
+==>5117 # RUNTIME
+gremlin> result.graph.io(IoCore.graphson()).writeGraph("m.json")
+==>null
+
+
+         \,,,/
+         (o o)
+-----oOOo-(3)-oOOo-----
+plugin activated: tinkerpop.server
+plugin activated: tinkerpop.utilities
+plugin activated: tinkerpop.tinkergraph
+gremlin> graph = TinkerGraph.open()
+==>tinkergraph[vertices:0 edges:0]
+gremlin> graph.createIndex('userId',Vertex.class)
+==>null
+gremlin> g=graph.traversal()
+==>graphtraversalsource[tinkergraph[vertices:0 edges:0], standard]
+gremlin> getOrCreate={id->
+gremlin> g.V().has('userId',id).tryNext().orElseGet{g.addV('userId',id).next()}
+gremlin> }
+==>groovysh_evaluate$_run_closure1@5aceec94
+gremlin> new File('s.tsv').eachLine{
+gremlin> if(!it.startsWith("#")){
+gremlin> (fromVertex,toVertex)=it.split('\t').collect(getOrCreate)
+gremlin> fromVertex.addEdge('votesFor',toVertex)
+gremlin> }
+gremlin> }
+==>e[2508495][1107656-votesFor->600676]
+gremlin> graph
+==>tinkergraph[vertices:729960 edges:1048576]
+gremlin> result=graph.compute().program(PageRankVertexProgram.build().create()).submit().get()
+==>result[tinkergraph[vertices:729960 edges:0],memory[size:0]]
+gremlin> result.memory().runtime
+==>27707 # RUNTIME
+gremlin> result.graph.io(IoCore.graphson()).writeGraph("s.json")
+==>null
+

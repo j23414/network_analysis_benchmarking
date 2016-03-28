@@ -1,15 +1,10 @@
-# GraphX
+# Pagerank on GraphX Apache Spark
 
 This uses apache spark. Installation is similar to gremlin.
 
 ```
 $ wget http://www-us.apache.org/dist/spark/spark-1.6.1/spark-1.6.1-bin-hadoop2.6.tgz
 $ tar zxvf spark-1.6.1-bin-without-hadoop.tgz
-```
-
-Start and exit the shell using the following commands:
-
-```
 $./bin/spark-shell
 
 scala> import org.apache.spark._
@@ -20,7 +15,11 @@ import org.apache.spark.graphx._
 
 scala> import org.apache.spark.rdd.RDD
 import org.apache.spark.rdd.RDD
+```
 
+Exit the shell with the following command:
+
+```
 scala> exit
 ```
 
